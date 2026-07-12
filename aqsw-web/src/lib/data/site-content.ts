@@ -1,16 +1,4 @@
-import type { StaticImageData } from "next/image";
-
 import { images } from "@/lib/assets";
-import abbotLogo from "../../../../Logos/abbot.webp";
-import atlasBankLogo from "../../../../Logos/atlas bank.jpg";
-import bankAlHabibLogo from "../../../../Logos/bank al habib.jpg";
-import gskLogo from "../../../../Logos/GSKK.png";
-import herbionLogo from "../../../../Logos/herbion.png";
-import hiltonLogo from "../../../../Logos/hilton.jpg";
-import ismailIndustriesLogo from "../../../../Logos/Ismail_Industries_logo.png";
-import pgLogo from "../../../../Logos/P & G.webp";
-import samiLogo from "../../../../Logos/SAMI.jpg";
-import ublLogo from "../../../../Logos/UBL.png";
 
 export const companyOverview = {
   headline: "Premium Industrial & Cleanroom Engineering Solutions Since 1990",
@@ -185,21 +173,21 @@ export const industries = [
 
 type ClientItem = {
   name: string;
-  logo?: StaticImageData;
+  logo?: string;
   logoClassName?: string;
 };
 
 export const clients: ClientItem[] = [
-  { name: "Hilton Pharma Pvt Ltd.", logo: hiltonLogo, logoClassName: "max-w-[200px] h-17" },
-  { name: "Abbott", logo: abbotLogo, logoClassName: "max-w-[200px] h-17" },
-  { name: "Herbion Pakistan", logo: herbionLogo, logoClassName: "max-w-[200px] h-17" },
-  { name: "Glaxo Smith Kline Pakistan", logo: gskLogo },
-  { name: "Sami Pharmaceutical Pvt. Ltd.", logo: samiLogo },
-  { name: "P & G Ltd", logo: pgLogo },
-  { name: "Ismail Industries Ltd.", logo: ismailIndustriesLogo },
-  { name: "Bank Al Habib Ltd.", logo: bankAlHabibLogo },
-  { name: "United Bank Ltd.", logo: ublLogo },
-  { name: "Atlas Bank Ltd.", logo: atlasBankLogo },
+  { name: "Hilton Pharma Pvt Ltd.", logo: "/assets/Logos/hilton.jpg", logoClassName: "max-w-[200px] h-17" },
+  { name: "Abbott", logo: "/assets/Logos/abbot.webp", logoClassName: "max-w-[200px] h-17" },
+  { name: "Herbion Pakistan", logo: "/assets/Logos/herbion.png", logoClassName: "max-w-[200px] h-17" },
+  { name: "Glaxo Smith Kline Pakistan", logo: "/assets/Logos/GSKK.png" },
+  { name: "Sami Pharmaceutical Pvt. Ltd.", logo: "/assets/Logos/SAMI.jpg" },
+  { name: "P & G Ltd", logo: "/assets/Logos/P & G.webp" },
+  { name: "Ismail Industries Ltd.", logo: "/assets/Logos/Ismail_Industries_logo.png" },
+  { name: "Bank Al Habib Ltd.", logo: "/assets/Logos/bank al habib.jpg" },
+  { name: "United Bank Ltd.", logo: "/assets/Logos/UBL.png" },
+  { name: "Atlas Bank Ltd.", logo: "/assets/Logos/atlas bank.jpg" },
   { name: "And Many More" },
 ];
 

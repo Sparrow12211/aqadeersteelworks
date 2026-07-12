@@ -1,6 +1,5 @@
 "use client";
 
-import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -8,7 +7,7 @@ import { Container } from "@/components/layout/container";
 import { SectionDivider, SectionHeading } from "@/components/motion/section-heading";
 import { clients } from "@/lib/data/site-content";
 
-function ClientBadge({ client }: { client: { name: string; logo?: StaticImageData; logoClassName?: string } }) {
+function ClientBadge({ client }: { client: { name: string; logo?: string; logoClassName?: string } }) {
   return (
     <div className="mx-6 flex h-24 min-w-[220px] flex-col items-center justify-center rounded-xl border border-light-gray bg-white px-6 py-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/10">
       {client.logo ? (

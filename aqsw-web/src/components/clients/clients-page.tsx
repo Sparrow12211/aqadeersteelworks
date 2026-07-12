@@ -1,6 +1,5 @@
 "use client";
 
-import type { StaticImageData } from "next/image";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,7 +8,7 @@ import { Container } from "@/components/layout/container";
 import { SectionDivider } from "@/components/motion/section-heading";
 import { clients } from "@/lib/data/site-content";
 
-function ClientCard({ client }: { client: { name: string; logo?: StaticImageData; logoClassName?: string } }) {
+function ClientCard({ client }: { client: { name: string; logo?: string; logoClassName?: string } }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24, scale: 0.98 }}

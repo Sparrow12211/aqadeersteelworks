@@ -10,18 +10,18 @@ export const images = {
   hero: asset("/assets/hero/hero-industrial.jpg"),
   ad: asset("/assets/hero/ad-image.png"),
   about: asset("/assets/whyaqsw/cnc.jpg"),
-  trolleys: asset("/assets/products/Moveable/WhatsApp Image 2026-07-08 at 1.50.58 AM.jpeg"),
+  trolleys: asset("/assets/products/Moveable/cover.jpg"),
   tables: asset("/assets/products/Lab Furniture/WhatsApp Image 2026-07-08 at 1.53.16 AM.jpeg"),
-  lockers: asset("/assets/products/Lockers/locker SS.jpeg"),
+  lockers: asset("/assets/products/Lockers/cover.jpg"),
   lockersMs: asset("/assets/products/Lockers/locker MS.jpeg"),
-  racks: asset("/assets/products/Mobile Racks/1000069228.jpg"),
-  almirah: asset("/assets/products/Almirah/almirah.jpeg"),
+  racks: asset("/assets/products/Mobile Racks/cover.png"),
+  almirah: asset("/assets/products/Almirah/cover.jpg"),
   safes: asset("/assets/products/Almirah/thieves loker.jpeg"),
   drawers: asset("/assets/products/Lockers/2.jpeg"),
   kitchen: asset("/assets/products/Lab Furniture/WhatsApp Image 2026-07-08 at 1.52.19 AM (1).jpeg"),
   stools: asset("/assets/products/Lab Furniture/WhatsApp Image 2026-07-08 at 1.52.18 AM.jpeg"),
   vessels: asset("/assets/products/Mobile Racks/WhatsApp Image 2026-07-08 at 1.52.20 AM (1).jpeg"),
-  sinks: asset("/assets/products/SS Sinks/sink5.jpeg"),
+  sinks: asset("/assets/products/SS Sinks/cover.jpg"),
   sinksAlt: asset("/assets/products/SS Sinks/sink.jpeg"),
   lab: asset("/assets/products/Lab Furniture/WhatsApp Image 2026-07-08 at 1.52.20 AM.jpeg"),
   structural: asset("/assets/products/Mobile Racks/1000069230.jpg"),
@@ -33,15 +33,15 @@ export const images = {
     chemical: asset("/assets/industries/chemical.jpg"),
   },
   expertise: {
-    almirah: asset("/assets/products/Almirah/almirah.jpeg"),
+    almirah: asset("/assets/products/Almirah/cover.jpg"),
     labFurniture: asset(
-      "/assets/products/Lab Furniture/WhatsApp Image 2026-07-08 at 1.52.18 AM (1).jpeg"
+      "/assets/products/Lab Furniture/cover.jpg"
     ),
-    lockers: asset("/assets/products/Lockers/2.jpeg"),
-    mobileRacks: asset("/assets/products/Mobile Racks/1000069228.jpg"),
+    lockers: asset("/assets/products/Lockers/cover.jpg"),
+    mobileRacks: asset("/assets/products/Mobile Racks/cover.png"),
     moveable: asset(
-      "/assets/products/Moveable/WhatsApp Image 2026-02-24 at 3.00.17 PM.jpeg"
+      "/assets/products/Moveable/cover.jpg"
     ),
-    ssSinks: asset("/assets/products/SS Sinks/sink.jpeg"),
+    ssSinks: asset("/assets/products/SS Sinks/cover.jpg"),
   },
 } as const;

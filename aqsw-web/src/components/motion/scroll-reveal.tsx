@@ -2,15 +2,13 @@
 
 import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
-
-const defaultVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+import {
+  getMotionTransition,
+  getRevealVariants,
+  getStaggerValue,
+  getViewportProps,
+  useMobileAnimation,
+} from "@/lib/animations";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -27,27 +25,21 @@ export function ScrollReveal({
   direction = "up",
   once = true,
 }: ScrollRevealProps) {
-  const directionOffset = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
-  };
-
+  const isMobile = useMobileAnimation();
+  const revealBase = getRevealVariants(direction, isMobile, 40);
   const variants: Variants = {
     hidden: {
+      ...revealBase.hidden,
       opacity: 0,
-      ...directionOffset[direction],
     },
     visible: {
+      ...revealBase.visible,
       opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
+      transition: getMotionTransition(isMobile, {
         duration: 0.7,
         delay,
         ease: [0.22, 1, 0.36, 1],
-      },
+      }),
     },
   };
 
@@ -56,7 +48,7 @@ export function ScrollReveal({
       className={cn(className)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, margin: "-80px" }}
+      viewport={getViewportProps(isMobile, once, "-80px")}
       variants={variants}
     >
       {children}
@@ -73,16 +65,18 @@ export function StaggerContainer({
   className?: string;
   stagger?: number;
 }) {
+  const isMobile = useMobileAnimation();
+
   return (
     <motion.div
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={getViewportProps(isMobile, true, "-60px")}
       variants={{
         hidden: {},
         visible: {
-          transition: { staggerChildren: stagger },
+          transition: { staggerChildren: getStaggerValue(isMobile, stagger) },
         },
       }}
     >
@@ -98,8 +92,23 @@ export function StaggerItem({
   children: React.ReactNode;
   className?: string;
 }) {
+  const isMobile = useMobileAnimation();
+
   return (
-    <motion.div className={className} variants={defaultVariants}>
+    <motion.div
+      className={className}
+      variants={{
+        hidden: { opacity: 0, y: isMobile ? 16 : 40 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: getMotionTransition(isMobile, {
+            duration: 0.7,
+            ease: [0.22, 1, 0.36, 1],
+          }),
+        },
+      }}
+    >
       {children}
     </motion.div>
   );

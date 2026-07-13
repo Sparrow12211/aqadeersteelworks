@@ -8,8 +8,11 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { SectionHeading } from "@/components/motion/section-heading";
 import { companyOverview, timeline } from "@/lib/data/site-content";
 import { images } from "@/lib/assets";
+import { getMotionTransition, useMobileAnimation } from "@/lib/animations";
 
 export function AboutAqsw() {
+  const isMobile = useMobileAnimation();
+
   return (
     <section className="relative bg-background py-24">
       <Container>
@@ -42,8 +45,11 @@ export function AboutAqsw() {
             <div className="relative">
               <motion.div
                 className="absolute -inset-3 rounded-2xl border-2 border-dashed border-secondary/30"
-                animate={{ rotate: [0, 1, 0, -1, 0] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                animate={isMobile ? { rotate: 0 } : { rotate: [0, 1, 0, -1, 0] }}
+                transition={getMotionTransition(isMobile, {
+                  duration: isMobile ? 0.2 : 10,
+                  ease: "easeInOut",
+                })}
               />
               <motion.div
                 className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl shadow-primary/20"
@@ -68,7 +74,10 @@ export function AboutAqsw() {
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.15, duration: 0.5 }}
+                    transition={getMotionTransition(isMobile, {
+                      delay: isMobile ? 0 : index * 0.15,
+                      duration: 0.4,
+                    })}
                   >
                     {index < timeline.length - 1 && (
                       <div className="absolute left-[23px] top-10 h-[calc(100%-16px)] w-px bg-gradient-to-b from-secondary to-light-gray" />

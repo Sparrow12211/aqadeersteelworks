@@ -24,6 +24,7 @@ import { useRef } from "react";
 import { Container } from "@/components/layout/container";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Button } from "@/components/ui/button";
+import { getMotionTransition, useMobileAnimation } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const missionVisionCards = [
@@ -198,6 +199,7 @@ const workflowSteps = [
 
 export function AboutPageContent() {
   const heroRef = useRef<HTMLElement>(null);
+  const isMobile = useMobileAnimation();
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -212,11 +214,14 @@ export function AboutPageContent() {
       <section ref={heroRef} className="relative flex min-h-[65vh] items-center overflow-hidden">
         <motion.div
           className="absolute inset-0 z-0"
-          style={{ y: imageY, scale: imageScale }}
+          style={{ y: isMobile ? 0 : imageY, scale: isMobile ? 1 : imageScale }}
         >
           <motion.div
-            animate={{ scale: [1.03, 1.05, 1.03] }}
-            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            animate={isMobile ? { scale: 1.02 } : { scale: [1.03, 1.05, 1.03] }}
+            transition={getMotionTransition(isMobile, {
+              duration: isMobile ? 0.4 : 16,
+              ease: "easeInOut",
+            })}
             className="relative h-full w-full"
           >
             <Image
@@ -233,13 +238,13 @@ export function AboutPageContent() {
         <div className="absolute inset-0 z-[1] bg-gradient-to-r from-primary/95 via-primary/85 to-primary/50" />
         <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary/80 via-transparent to-primary/25" />
 
-        <motion.div className="relative z-10 w-full py-24" style={{ y: contentY }}>
+        <motion.div className="relative z-10 w-full py-24" style={{ y: isMobile ? 0 : contentY }}>
           <Container>
             <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.15 }}
+                transition={getMotionTransition(isMobile, { duration: 0.4, delay: isMobile ? 0 : 0.15 })}
               >
                 <span className="mb-6 inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.3em] text-white/80 backdrop-blur-sm">
                   Engineering Excellence
@@ -250,7 +255,7 @@ export function AboutPageContent() {
                 className="font-heading text-4xl font-bold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
                 initial={{ opacity: 0, y: 36, filter: "blur(6px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                transition={getMotionTransition(isMobile, { duration: 0.4, delay: isMobile ? 0 : 0.25, ease: [0.22, 1, 0.36, 1] })}
               >
                 Engineering Excellence.
                 <span className="mt-2 block text-secondary">Precision Fabrication.</span>
@@ -261,7 +266,7 @@ export function AboutPageContent() {
                 className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.45 }}
+                transition={getMotionTransition(isMobile, { duration: 0.4, delay: isMobile ? 0 : 0.45 })}
               >
                 AQSW Engineering Solutions delivers precision sheet metal fabrication, stainless steel products, laboratory furniture, storage systems and custom engineering solutions for pharmaceutical, healthcare, commercial and industrial organizations across Pakistan.
               </motion.p>
@@ -270,7 +275,7 @@ export function AboutPageContent() {
                 className="mt-10"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={getMotionTransition(isMobile, { duration: 0.4, delay: isMobile ? 0 : 0.6 })}
               >
                 <Button asChild size="lg" variant="default">
                   <Link href="/contact">
@@ -360,7 +365,12 @@ export function AboutPageContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-70px" }}
                   transition={{ duration: 0.55, delay: index * 0.06 }}
-                  whileHover={{ y: -4, scale: 1.01 }}
+                  whileHover={{
+                    y: -4,
+                    scale: 1.01,
+                    boxShadow: "0 18px 45px -20px rgba(11, 31, 58, 0.24)",
+                    transition: { type: "spring", stiffness: 260, damping: 20, mass: 0.9 },
+                  }}
                 >
                   <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-secondary/10 text-secondary">
                     <Icon className="h-7 w-7" />
@@ -396,7 +406,12 @@ export function AboutPageContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-70px" }}
                 transition={{ duration: 0.6, delay: index * 0.07 }}
-                whileHover={{ scale: 1.03, y: -4 }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -4,
+                  boxShadow: "0 24px 70px -24px rgba(11, 31, 58, 0.3)",
+                  transition: { type: "spring", stiffness: 260, damping: 22, mass: 0.9 },
+                }}
               >
                 <div className="relative aspect-[4/5]">
                   <Image
@@ -437,7 +452,12 @@ export function AboutPageContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-70px" }}
                 transition={{ duration: 0.6, delay: index * 0.07 }}
-                whileHover={{ y: -6, scale: 1.01 }}
+                whileHover={{
+                  y: -6,
+                  scale: 1.01,
+                  boxShadow: "0 20px 60px -24px rgba(11, 31, 58, 0.26)",
+                  transition: { type: "spring", stiffness: 260, damping: 20, mass: 0.9 },
+                }}
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
@@ -483,7 +503,12 @@ export function AboutPageContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.55, delay: index * 0.08 }}
-                  whileHover={{ y: -4, scale: 1.01 }}
+                  whileHover={{
+                    y: -4,
+                    scale: 1.01,
+                    boxShadow: "0 18px 45px -20px rgba(11, 31, 58, 0.25)",
+                    transition: { type: "spring", stiffness: 260, damping: 20, mass: 0.9 },
+                  }}
                 >
                   <div className="mb-5 flex h-18 w-18 items-center justify-center rounded-full bg-secondary/20 text-secondary">
                     <Icon className="h-9 w-9" />

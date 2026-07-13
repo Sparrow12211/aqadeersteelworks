@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { getMotionTransition, getViewportProps, useMobileAnimation } from "@/lib/animations";
 
 interface SectionDividerProps {
   className?: string;
@@ -13,6 +14,7 @@ export function SectionDivider({
   variant = "light",
 }: SectionDividerProps) {
   const isDark = variant === "dark";
+  const isMobile = useMobileAnimation();
 
   return (
     <div className={cn("relative h-px w-full overflow-hidden", className)}>
@@ -25,9 +27,13 @@ export function SectionDivider({
       <motion.div
         className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-secondary to-transparent"
         initial={{ x: "-100%" }}
-        whileInView={{ x: "400%" }}
-        viewport={{ once: false, margin: "-100px" }}
-        transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity, repeatDelay: 3 }}
+        whileInView={{ x: isMobile ? "100%" : "400%" }}
+        viewport={getViewportProps(isMobile, false, "-100px")}
+        transition={
+          isMobile
+            ? { duration: 0.9, ease: "easeInOut" }
+            : { duration: 2.5, ease: "easeInOut", repeat: Infinity, repeatDelay: 3 }
+        }
       />
     </div>
   );
@@ -46,6 +52,8 @@ export function SectionHeading({
   align?: "left" | "center";
   light?: boolean;
 }) {
+  const isMobile = useMobileAnimation();
+
   return (
     <div
       className={cn(
@@ -62,8 +70,8 @@ export function SectionHeading({
           )}
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={getViewportProps(isMobile, true)}
+          transition={getMotionTransition(isMobile, { duration: 0.5 })}
         >
           {eyebrow}
         </motion.span>
@@ -75,8 +83,8 @@ export function SectionHeading({
         )}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={getViewportProps(isMobile, true)}
+        transition={getMotionTransition(isMobile, { duration: 0.6, delay: 0.1 })}
       >
         {title}
       </motion.h2>
@@ -88,8 +96,8 @@ export function SectionHeading({
           )}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={getViewportProps(isMobile, true)}
+          transition={getMotionTransition(isMobile, { duration: 0.6, delay: 0.2 })}
         >
           {description}
         </motion.p>

@@ -89,40 +89,44 @@ export function Lightbox({ product, currentIndex, onClose, onNavigate }: Lightbo
               setTouchStartX(null);
             }}
           >
-            <div className="absolute inset-x-0 top-4 z-10 flex items-center justify-between px-4 sm:px-6">
-              <div className="rounded-full border border-white/50 bg-white/80 px-3 py-1 text-sm font-medium text-primary backdrop-blur">
-                {currentIndex + 1} / {product.images.length}
-              </div>
-              <div className="flex gap-2">
+            <div className="flex min-h-[60vh] items-center justify-center px-4 py-16 sm:px-6 sm:py-20">
+              <div className="flex w-full items-center justify-center gap-6">
                 <button
                   type="button"
                   aria-label="Previous image"
                   onClick={() => onNavigate(-1)}
-                  className="rounded-full border border-primary/10 bg-white/80 p-2 text-primary backdrop-blur transition-colors duration-300 hover:bg-white"
+                  className="group flex-none w-14 h-14 flex items-center justify-center rounded-full border border-primary/30 bg-primary text-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.08] hover:shadow-lg focus:outline-none"
                 >
-                  <ArrowLeft className="h-4 w-4" />
+                  <ArrowLeft className="h-6 w-6 text-white transform transition-transform duration-200 group-hover:-translate-x-1" strokeWidth={3} />
                 </button>
+
+                <div className="flex-1 flex items-center justify-center">
+                  <div className="relative h-[60vh] w-full max-w-4xl">
+                    <Image
+                      src={currentImage}
+                      alt={`${product.title} image ${currentIndex + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 90vw, 70vw"
+                      priority
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+
                 <button
                   type="button"
                   aria-label="Next image"
                   onClick={() => onNavigate(1)}
-                  className="rounded-full border border-primary/10 bg-white/80 p-2 text-primary backdrop-blur transition-colors duration-300 hover:bg-white"
+                  className="group flex-none w-14 h-14 flex items-center justify-center rounded-full border border-primary/30 bg-primary text-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.08] hover:shadow-lg focus:outline-none"
                 >
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-6 w-6 text-white transform transition-transform duration-200 group-hover:translate-x-1" strokeWidth={3} />
                 </button>
               </div>
             </div>
 
-            <div className="flex min-h-[60vh] items-center justify-center px-4 py-16 sm:px-6 sm:py-20">
-              <div className="relative h-[60vh] w-full max-w-4xl">
-                <Image
-                  src={currentImage}
-                  alt={`${product.title} image ${currentIndex + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 90vw, 70vw"
-                  priority
-                  className="object-contain"
-                />
+            <div className="flex items-center justify-center border-t border-light-gray/70 bg-white px-4 py-4 sm:px-6">
+              <div className="text-sm font-medium text-primary/80">
+                {currentIndex + 1} / {product.images.length}
               </div>
             </div>
           </div>

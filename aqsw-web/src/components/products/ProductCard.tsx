@@ -11,7 +11,12 @@ type ProductCardProps = {
 
 export function ProductCard({ product, onViewGallery }: ProductCardProps) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-light-gray/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-secondary/10">
+    <button
+      type="button"
+      onClick={() => onViewGallery(product)}
+      aria-label={`Open gallery for ${product.title}`}
+      className="group flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border border-light-gray/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-secondary/10 text-left"
+    >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={product.coverImage}
@@ -32,14 +37,10 @@ export function ProductCard({ product, onViewGallery }: ProductCardProps) {
           <p className="mt-2 text-sm text-primary/70">{product.images.length} images</p>
         </div>
 
-        <button
-          type="button"
-          onClick={() => onViewGallery(product)}
-          className="mt-6 inline-flex items-center justify-center rounded-full border border-primary/20 bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-secondary"
-        >
+        <div className="mt-6 inline-flex items-center justify-center rounded-full border border-primary/20 bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-secondary">
           View Gallery
-        </button>
+        </div>
       </div>
-    </div>
+    </button>
   );
 }

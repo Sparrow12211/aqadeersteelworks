@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "A trusted name in stainless steel and mild steel fabrication, serving Pakistan's industrial sector since 1990 with high-quality solutions for pharmaceutical, food, commercial, and industrial clients.",
   url: "https://aqadeersteelworks.com.pk",
-  email: "a.qadeersteelworks@yahoo.com",
+  email: "a.qadeersteelworks@hotmail.com",
   address:
     "Bait-ul-madina Building, Near U.B.L Bank Shoe Market, Off Nishter Road, Karachi",
   googleMapsUrl: "https://share.google/I4xYMU6S6EG4IfJhi",

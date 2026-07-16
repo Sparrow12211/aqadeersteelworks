@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 
-import { PagePlaceholder } from "@/components/layout/page-placeholder";
+import { ContactPageContent } from "@/components/contact/contact-page";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact A. Qadeer Steel Works for quotations and inquiries.",
+  title: "Contact Us | A. Qadeer Steel Works",
+  description: "Contact A. Qadeer Steel Works for fabrication inquiries, cleanroom solutions, and custom industrial projects.",
 };
 
 export default function ContactPage() {
-  return (
-    <PagePlaceholder
-      title="Contact Us"
-      description="Contact form and details will be built in the next development phase."
-    />
-  );
+  return <ContactPageContent />;
 }

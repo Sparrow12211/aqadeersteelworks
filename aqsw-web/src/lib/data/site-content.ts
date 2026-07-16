@@ -178,16 +178,17 @@ type ClientItem = {
 };
 
 export const clients: ClientItem[] = [
+  { name: "Getz Pharma", logo: "/assets/Logos/Getz.webp",logoClassName: "max-w-[200px] h-17" },
   { name: "Hilton Pharma Pvt Ltd.", logo: "/assets/Logos/hilton.jpg", logoClassName: "max-w-[200px] h-17" },
   { name: "Abbott", logo: "/assets/Logos/abbot.webp", logoClassName: "max-w-[200px] h-17" },
   { name: "Herbion Pakistan", logo: "/assets/Logos/herbion.png", logoClassName: "max-w-[200px] h-17" },
   { name: "Glaxo Smith Kline Pakistan", logo: "/assets/Logos/GSKK.png" },
-  { name: "Sami Pharmaceutical Pvt. Ltd.", logo: "/assets/Logos/SAMI.jpg" },
   { name: "P & G Ltd", logo: "/assets/Logos/P & G.webp" },
   { name: "Ismail Industries Ltd.", logo: "/assets/Logos/Ismail_Industries_logo.png" },
   { name: "Bank Al Habib Ltd.", logo: "/assets/Logos/bank al habib.jpg" },
   { name: "United Bank Ltd.", logo: "/assets/Logos/UBL.png" },
   { name: "Atlas Bank Ltd.", logo: "/assets/Logos/atlas bank.jpg" },
+  {name : "Hinucon", logo: "/assets/Logos/hinucon.png"},
   { name: "And Many More" },
 ];
 

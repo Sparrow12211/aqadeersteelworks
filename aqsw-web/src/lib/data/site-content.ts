@@ -179,7 +179,7 @@ type ClientItem = {
 
 export const clients: ClientItem[] = [
   { name: "Getz Pharma", logo: "/assets/Logos/Getz.png",logoClassName: "max-w-[200px] h-17" },
-  { name: "Hilton Pharma Pvt Ltd.", logo: "/assets/Logos/Hilton.png", logoClassName: "max-w-[200px] h-17" },
+  { name: "Hilton Pharma Pvt Ltd.", logo: "/assets/Logos/hilton.png", logoClassName: "max-w-[200px] h-17" },
   { name: "Abbott", logo: "/assets/Logos/abbott.png", logoClassName: "max-w-[200px] h-17" },
   { name: "Herbion Pakistan", logo: "/assets/Logos/herbion.png", logoClassName: "max-w-[200px] h-17" },
   { name: "Glaxo Smith Kline Pakistan", logo: "/assets/Logos/GSKK.png" },

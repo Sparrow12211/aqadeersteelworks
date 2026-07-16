@@ -1,5 +1,6 @@
 "use client";
 
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, Mail, MapPin, Phone, SendHorizonal } from "lucide-react";
@@ -46,6 +47,8 @@ export function ContactPageContent() {
   const [formState, setFormState] = useState<FormState>(initialFormState);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,7 +63,7 @@ export function ContactPageContent() {
     }
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const nextErrors: FormErrors = {};
@@ -88,10 +91,45 @@ export function ContactPageContent() {
 
     if (Object.keys(nextErrors).length > 0) {
       setSubmitted(false);
+      setSubmitError("");
       return;
     }
 
-    setSubmitted(true);
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setSubmitted(false);
+      setSubmitError("We were unable to send your inquiry at this time. Please try again or contact us directly.");
+      return;
+    }
+
+    const templateParams = {
+      fullName: formState.fullName.trim(),
+      companyName: formState.companyName.trim(),
+      position: formState.position.trim(),
+      email: formState.email.trim(),
+      phone: formState.phone.trim(),
+      message: formState.message.trim(),
+    };
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setFormState(initialFormState);
+      setErrors({});
+      setSubmitted(true);
+      setSubmitError("");
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      setSubmitted(false);
+      setSubmitError("We were unable to send your inquiry at this time. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -253,7 +291,17 @@ export function ContactPageContent() {
                     </p>
                   </motion.div>
                 ) : (
-                  <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+                  <>
+                    {submitError ? (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mb-5 rounded-[1rem] border border-red-200 bg-red-50 p-4"
+                      >
+                        <p className="text-sm font-medium text-red-700">{submitError}</p>
+                      </motion.div>
+                    ) : null}
+                    <form className="space-y-5" onSubmit={handleSubmit} noValidate>
                     <div className="grid gap-5 md:grid-cols-2">
                       <label className="block text-sm font-medium text-primary">
                         <span className="mb-2 block">Full Name *</span>
@@ -340,12 +388,13 @@ export function ContactPageContent() {
                       <p className="text-sm text-dark-gray">
                         Required fields are marked with an asterisk.
                       </p>
-                      <Button type="submit" size="lg" className="min-w-[180px]">
-                        Submit Inquiry
-                        <SendHorizonal className="h-4 w-4" />
+                      <Button type="submit" size="lg" className="min-w-[180px]" disabled={isSubmitting}>
+                        {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                        {!isSubmitting ? <SendHorizonal className="h-4 w-4" /> : null}
                       </Button>
                     </div>
                   </form>
+                  </>
                 )}
               </div>
             </ScrollReveal>

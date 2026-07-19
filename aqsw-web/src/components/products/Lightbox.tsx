@@ -95,7 +95,7 @@ export function Lightbox({ product, currentIndex, onClose, onNavigate }: Lightbo
                   type="button"
                   aria-label="Previous image"
                   onClick={() => onNavigate(-1)}
-                  className="group flex-none w-14 h-14 flex items-center justify-center rounded-full border border-primary/30 bg-primary text-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.08] hover:shadow-lg focus:outline-none"
+                  className="hidden lg:flex group flex-none w-14 h-14 flex items-center justify-center rounded-full border border-primary/30 bg-primary text-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.08] hover:shadow-lg focus:outline-none"
                 >
                   <ArrowLeft className="h-6 w-6 text-white transform transition-transform duration-200 group-hover:-translate-x-1" strokeWidth={3} />
                 </button>
@@ -117,7 +117,7 @@ export function Lightbox({ product, currentIndex, onClose, onNavigate }: Lightbo
                   type="button"
                   aria-label="Next image"
                   onClick={() => onNavigate(1)}
-                  className="group flex-none w-14 h-14 flex items-center justify-center rounded-full border border-primary/30 bg-primary text-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.08] hover:shadow-lg focus:outline-none"
+                  className="hidden lg:flex group flex-none w-14 h-14 flex items-center justify-center rounded-full border border-primary/30 bg-primary text-white shadow-md transition-transform duration-200 ease-out hover:scale-[1.08] hover:shadow-lg focus:outline-none"
                 >
                   <ArrowRight className="h-6 w-6 text-white transform transition-transform duration-200 group-hover:translate-x-1" strokeWidth={3} />
                 </button>

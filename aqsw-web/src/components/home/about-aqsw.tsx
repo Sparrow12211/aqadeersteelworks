@@ -23,7 +23,7 @@ export function AboutAqsw() {
           align="left"
         />
 
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-start gap-16 lg:grid-cols-2">
           <ScrollReveal direction="left">
             <div className="space-y-6">
               <p className="text-base leading-relaxed text-dark-gray sm:text-lg">

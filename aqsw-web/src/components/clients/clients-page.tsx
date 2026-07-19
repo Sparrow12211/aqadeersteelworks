@@ -28,7 +28,9 @@ function ClientCard({ client }: { client: { name: string; logo?: string; logoCla
         alt={`${client.name} logo`}
         width={180}
         height={80}
-        className={`max-h-16 w-auto max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-[1.05] ${client.logoClassName ?? ""}`}
+        className={`max-h-16 w-auto max-w-[180px] object-contain transition-transform duration-300 ${
+  client.logoClassName ?? "group-hover:scale-[1.05]"
+}`}
         loading="lazy"
 />
         ) : (

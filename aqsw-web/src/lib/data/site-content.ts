@@ -178,17 +178,17 @@ type ClientItem = {
 };
 
 export const clients: ClientItem[] = [
-  { name: "Getz Pharma", logo: "/assets/Logos/Getz.png",logoClassName: "max-w-[200px] h-17" },
-  { name: "Hilton Pharma Pvt Ltd.", logo: "/assets/Logos/hilton.png", logoClassName: "max-w-[200px] h-17" },
-  { name: "Abbott", logo: "/assets/Logos/abbott.png", logoClassName: "max-w-[200px] h-17" },
-  { name: "Herbion Pakistan", logo: "/assets/Logos/herbion.png", logoClassName: "max-w-[200px] h-17" },
+  { name: "Getz Pharma", logo: "/assets/Logos/Getz.png", logoClassName: "scale-160" },
+  { name: "Hilton Pharma Pvt Ltd.", logo: "/assets/Logos/hilton.png", logoClassName: "scale-150" },
+  { name: "Abbott", logo: "/assets/Logos/abbott.png",logoClassName: "scale-160" },
+  { name: "Herbion Pakistan", logo: "/assets/Logos/herbion.png", logoClassName: "scale-160" },
   { name: "Glaxo Smith Kline Pakistan", logo: "/assets/Logos/GSKK.png" },
   { name: "P & G Ltd", logo: "/assets/Logos/P & G.webp" },
   { name: "Ismail Industries Ltd.", logo: "/assets/Logos/Ismail_Industries_logo.png" },
-  { name: "Bank Al Habib Ltd.", logo: "/assets/Logos/bank al habib.png" },
-  { name: "United Bank Ltd.", logo: "/assets/Logos/UBL.png" },
+  { name: "Bank Al Habib Ltd.", logo: "/assets/Logos/bank al habib.png",logoClassName: "scale-140" },
+  { name: "United Bank Ltd.", logo: "/assets/Logos/UBL.png",logoClassName: "scale-140" },
   { name: "Atlas Bank Ltd.", logo: "/assets/Logos/atlas bank.png" },
-  {name : "Hinucon", logo: "/assets/Logos/hinucon.png"},
+  {name : "Hinucon", logo: "/assets/Logos/hinucon.png",logoClassName: "scale-120"},
   { name: "And Many More" },
 ];
 

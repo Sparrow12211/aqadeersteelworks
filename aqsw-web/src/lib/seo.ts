@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/constants";
 
 const metadataBaseUrl = new URL("https://aqadeersteelworks.com");
-const defaultImage = "/assets/hero/og-image.png";
+const defaultImage = "https://aqadeersteelworks.com/assets/hero/og-image.png";
 
 export function createPageMetadata({
   title,

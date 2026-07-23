@@ -118,7 +118,7 @@ export function getLocalBusinessSchema() {
     "@type": ["LocalBusiness", "ManufacturingBusiness"],
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/assets/seo/logo.png`,
+    logo: `${siteConfig.url}/assets/hero/logo.png`,
     image: `${siteConfig.url}/assets/hero/og-image.png`,
     description:
       "Industrial fabrication company specializing in stainless steel fabrication, mild steel fabrication, laboratory furniture, industrial lockers, SS304, SS316, mobile storage systems, and custom fabrication in Karachi, Pakistan.",

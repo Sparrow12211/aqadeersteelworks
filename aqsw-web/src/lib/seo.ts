@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/constants";
 
 const metadataBaseUrl = new URL("https://aqadeersteelworks.com");
-const defaultImage = "/assets/hero/hero-industrial.jpg";
+const defaultImage = "/assets/hero/og-image.png";
 
 export function createPageMetadata({
   title,
@@ -118,8 +118,8 @@ export function getLocalBusinessSchema() {
     "@type": ["LocalBusiness", "ManufacturingBusiness"],
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/favicon.ico`,
-    image: `${siteConfig.url}/assets/hero/hero-industrial.jpg`,
+    logo: `${siteConfig.url}/assets/seo/logo.png`,
+    image: `${siteConfig.url}/assets/hero/og-image.png`,
     description:
       "Industrial fabrication company specializing in stainless steel fabrication, mild steel fabrication, laboratory furniture, industrial lockers, SS304, SS316, mobile storage systems, and custom fabrication in Karachi, Pakistan.",
     address: {

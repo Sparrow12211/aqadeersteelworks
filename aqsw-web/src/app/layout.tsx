@@ -3,7 +3,9 @@ import { Barlow_Condensed, Inter } from "next/font/google";
 
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/constants";
+import { createPageMetadata, getLocalBusinessSchema, getOrganizationSchema, getWebsiteSchema } from "@/lib/seo";
 
 import "./globals.css";
 
@@ -20,12 +22,10 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: `${siteConfig.name} | Premium Steel Fabrication Since ${siteConfig.since}`,
-    template: `%s | ${siteConfig.shortName}`,
-  },
+export const metadata: Metadata = createPageMetadata({
+  title: `${siteConfig.name} | Premium Steel Fabrication Since ${siteConfig.since}`,
   description: siteConfig.description,
+  path: "/",
   keywords: [
     "steel fabrication",
     "stainless steel",
@@ -36,13 +36,7 @@ export const metadata: Metadata = {
     "Karachi",
     "Pakistan",
   ],
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    type: "website",
-    locale: "en_PK",
-  },
-};
+});
 
 export default function RootLayout({
   children,
@@ -55,6 +49,7 @@ export default function RootLayout({
       className={`${barlowCondensed.variable} ${inter.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-background font-body text-foreground antialiased">
+        <JsonLd data={[getOrganizationSchema(), getLocalBusinessSchema(), getWebsiteSchema()]} />
         <Header />
         <main>{children}</main>
         <Footer />

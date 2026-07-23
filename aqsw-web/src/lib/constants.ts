@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Precision Fabrication. Lasting Solutions.",
   description:
     "A trusted name in stainless steel and mild steel fabrication, serving Pakistan's industrial sector since 1990 with high-quality solutions for pharmaceutical, food, commercial, and industrial clients.",
-  url: "https://aqadeersteelworks.com.pk",
+  url: "https://aqadeersteelworks.com",
   email: "a.qadeersteelworks@hotmail.com",
   address:
     "Bait-ul-madina Building, Near U.B.L Bank Shoe Market, Off Nishter Road, Karachi",

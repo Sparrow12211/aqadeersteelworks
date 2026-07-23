@@ -20,7 +20,7 @@ import { siteConfig } from "@/lib/constants";
 import { images } from "@/lib/assets";
 import { getMotionTransition, useMobileAnimation } from "@/lib/animations";
 
-const headlineWords = ["Precision.", "Quality.", "Reliability."];
+const headlineWords = ["Precise", "Fabrication", "Solutions."];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -107,7 +107,7 @@ export function Hero() {
                 {headlineWords.map((word, i) => (
                   <motion.span
                     key={word}
-                    className={`block ${word === "Quality." ? "text-secondary" : ""}`}
+                    className={`block ${word === "Fabrication" ? "text-secondary" : ""}`}
                     initial={{ opacity: 0, y: 50, filter: "blur(8px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                     transition={getMotionTransition(isMobile, {
@@ -127,8 +127,8 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={getMotionTransition(isMobile, { duration: 0.4, delay: isMobile ? 0 : 0.85 })}
               >
-                Premium Industrial &amp; Cleanroom Engineering Solutions Since{" "}
-                {siteConfig.since}
+                From stainless steel and mild steel fabrication to complete industrial solutions across Pakistan — 
+  since {siteConfig.since}.
               </motion.p>
 
               <motion.div

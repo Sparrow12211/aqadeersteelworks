@@ -211,6 +211,7 @@ export function AboutPageContent() {
 
   return (
     <main>
+      <h1 className="sr-only">About A. Qadeer Steel Works</h1>
       <section ref={heroRef} className="relative flex min-h-[65vh] items-center overflow-hidden">
         <motion.div
           className="absolute inset-0 z-0"

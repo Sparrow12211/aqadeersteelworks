@@ -97,7 +97,7 @@ const capabilities = [
   {
     title: "Laboratory Furniture",
     description: "Purpose-built laboratory systems designed for performance and organization.",
-    image: "/assets/products/Lab Furniture/WhatsApp Image 2026-07-08 at 1.52.20 AM.jpeg",
+    image: "/assets/products/Lab Furniture/1.jpeg",
   },
   {
     title: "Mobile Storage Systems",

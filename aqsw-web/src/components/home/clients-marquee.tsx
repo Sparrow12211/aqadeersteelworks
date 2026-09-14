@@ -37,7 +37,7 @@ export function ClientsMarquee() {
         <SectionHeading
           eyebrow="Our Clients"
           title="Trusted by Industry Leaders"
-          description="We have served over 200 clients, providing a full range of fabrication services dependably, day in and day out."
+          description="We have served over 200 clients, delivering a full range of fabrication solutions reliably, both directly and through our supply partners."
         />
       </Container>
 

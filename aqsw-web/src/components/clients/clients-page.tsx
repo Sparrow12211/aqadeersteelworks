@@ -66,7 +66,7 @@ export function ClientsPageContent() {
               Trusted by Industry Leaders
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-dark-gray sm:text-lg">
-              AQSW Engineering Solutions is proud to have delivered precision sheet metal fabrication, stainless steel solutions, laboratory furniture, storage systems, and industrial equipment for some of Pakistan&apos;s most respected organizations. Our long-term relationships are built on quality, reliability, and trust.
+              AQSW Engineering Solutions is proud to have delivered precision sheet metal fabrication, stainless steel solutions, laboratory furniture, storage systems, and industrial equipment to some of Pakistan&apos;s most respected organizations both directly and through established third-party supply partners. Our relationships are built on quality, reliability, and trust.
             </p>
           </motion.div>
 
